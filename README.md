@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+scp -r ./build root@118.25.148.228:/www/wwwroot/amazon-clone
 
 ## Available Scripts
 
