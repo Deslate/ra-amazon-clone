@@ -12,9 +12,8 @@ export const autoLogin = () => {
         if(response.status===200){
             message.success("Auto Login")
             return response.json()
-        }else if(response.status===405){
-            // 正常情况下以上逻辑都可以交由后端成功处理
-            // 为了以防万一，如果登录失败则手动创建一个新用户
+        }else if(response.status===404){
+            // 如果登录失败则手动创建一个新用户
             message.info("User Recreating...")
             const data = await fetch(`${API}/user?new=true`,{
                 method:'POST',

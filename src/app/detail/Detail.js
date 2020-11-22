@@ -8,6 +8,19 @@ import { Rate, Divider } from 'antd'
 import { LocalDining } from '@material-ui/icons';
 import Product from '../components/product/Product'
 import { getSuggestionByGood } from '../../core/suggestion';
+import { newGoodViewEvent } from '../../core/event';
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
 
 const Detail = () => {
 
@@ -19,7 +32,7 @@ const Detail = () => {
 
     const [ suggestions, setSuggestions ] = React.useState([])
 
-    React.useState(()=>{
+    React.useEffect(()=>{
         getGoodById(goodId)
         .then(data=>{
             setGoodInfo(data)
@@ -29,7 +42,8 @@ const Detail = () => {
         .then(data=>{
             setSuggestions(data.result)
         })
-    })
+        newGoodViewEvent(getCookie("user_id"),goodId)
+    },[])
 
 
     return (
