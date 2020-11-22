@@ -1,66 +1,77 @@
-.header {
+.App-header {
   height: 60px;
   display: flex;
   align-items: center;
   background-color: #131921;
-  position: sticky;
+  position: sticky !important;
   top: 0;
   z-index: 100;
 }
 
-.header__logo {
+.App-header__logo {
   width: 100px;
   object-fit: contain;
   margin: 0 20px;
   margin-top: 18px;
 }
 
-.header__search {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  border-radius: 24px;
+.App-header__search {
+  display: flex !important;
+  flex: 1 !important;
+  align-items: center !important;
+  border-radius: 24px !important;
 }
 
-.header__searchInput {
-  height: 12px;
-  padding: 10px;
-  border: none;
-  width: 100%;
+.App-header__searchInput {
+  min-height: 12px !important;
+  padding: 10px !important;
+  border: none !important;
+  width: 100% !important;
 }
 
-.header__searchIcon {
-  padding: 5px;
-  height: 22px !important;
+.App-header__searchIcon {
+  padding: 5px !important;
+  min-height: 22px !important;
   background-color: #cd9042;
+  font-size: large;
+  outline: none;
+  border:none;
+  border-left:2px solid #cd9042;
+  border-right:2px solid #cd9042;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
-.header__optionLineOne {
-  font-size: 10px;
+.App-header__searchIcon:active{
+  border:2px solid #000000
 }
 
-.header__optionLineTwo {
-  font-size: 13px;
-  font-weight: 800;
+.App-header__optionLineOne {
+  font-size: 10px !important;
 }
 
-.header__optionBasket {
-  display: flex;
-  align-items: center;
-  color: white;
+.App-header__optionLineTwo {
+  font-size: 13px !important;
+  font-weight: 800 !important;
 }
 
-.header__basketCount {
-  margin-left: 10px;
-  margin-right: 10px;
+.App-header__optionBasket {
+  display: flex !important;
+  align-items: center !important;
+  color: white !important;
 }
 
-.header__nav {
+.App-header__basketCount {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.App-header__nav {
   display: flex;
   justify-content: space-evenly;
 }
 
-.header__option {
+.App-header__option {
   display: flex;
   flex-direction: column;
   margin-left: 10px;

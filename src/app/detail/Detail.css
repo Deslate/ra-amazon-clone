@@ -1,0 +1,123 @@
+.Detail-heading-bar{
+    height:35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 20px;
+    align-items: center;
+    box-shadow: 0px 0px 10px #00000033 !important;
+    background-color: white;
+}
+
+.Detail-contant{
+    min-height: 100vh;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    padding:20px;
+}
+
+.Detail-main{
+    display: flex;
+    padding-right: 250px;
+    flex-direction: row;
+}
+
+.Detail-image{
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+
+.Detail-info{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.Detail-description{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.Detail-choices{
+    margin-top: 20px;
+}
+
+.Detail-choice-box{
+    height:80px;
+    width: 180px;
+    padding: 15px;
+    padding-top: 5px;
+    border: 1.5px solid #ff000099;
+    border-radius: 3px;
+    background-color: #ff000011;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.Good-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.Good-price-label{
+    font-size: 12px;
+    font-weight: 500;
+    color: black;
+}
+
+.Good-price-number{
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+
+.Detail-actions{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.Add-to-cart{
+    width: 160px;
+    height: 50px;
+    background-color: rgb(255, 175, 1);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Add-to-cart:hover{
+    background-color: rgb(253, 193, 63);
+    color: white;
+}
+
+.Add-to-cart:focus{
+    background-color: rgb(255, 175, 1);
+    color: white;
+}
+
+.Purchase{
+    width: 160px;
+    height: 50px;
+    background-color: rgb(255, 103, 1);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Purchase:hover{
+    background-color: rgb(253, 131, 49);
+    color: white;
+}
+
+.Purchase:focus{
+    background-color: rgb(255, 103, 1);
+    color: white;
+}

@@ -5,12 +5,15 @@ import Home from "./home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "./checkout/Checkout";
 import Login from "./login/Login";
+import GList from "./glist/GList";
 import Payment from "./payment/Payment";
 import Orders from "./orders/Orders";
 import { auth } from "../core/firebase";
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Admin from "./admin/Admin";
+import Detail from "./detail/Detail";
 
 const promise = loadStripe(
   "pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL"
@@ -46,6 +49,17 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/g">
+            <Header />
+            <Detail />
+          </Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/gl">
+            <Header />
+            <GList />
+          </Route>
           <Route path="/orders">
             <Header />
             <Orders />

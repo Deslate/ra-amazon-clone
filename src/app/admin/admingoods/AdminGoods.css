@@ -1,0 +1,17 @@
+.AdminGoods-page{
+    padding:10px;
+}
+
+.List-item{
+    box-shadow: 0px 0px 10px #00000033;
+    background-color: white;
+    margin:10px;
+    margin-bottom: 0px;
+}
+
+.List-item-name{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width: 200px;
+}

@@ -20,13 +20,13 @@ function Product({ id, title, image, price, rating }) {
   };
 
   return (
-    <div className="product">
+    <div className="product" style={{flex:1}}>
       <div className="product__info">
-        <p>{title}</p>
-        <p className="product__price">
+        <a href={`/g?gid=${id}`}><span style={{color:"black", fontSize:"20px", fontWeight:500}}>{title}</span></a>
+        <a href={`/g?gid=${id}`}><p className="product__price">
           <small>$</small>
           <strong>{price}</strong>
-        </p>
+        </p></a>
         <div className="product__rating">
           {Array(rating)
             .fill()
@@ -36,7 +36,7 @@ function Product({ id, title, image, price, rating }) {
         </div>
       </div>
 
-      <img src={image} alt="" />
+      <img src={image} alt="" onClick={()=>window.location.href=`/g?gid=${id}`}/>
 
       <button onClick={addToBasket}>Add to Basket</button>
     </div>
