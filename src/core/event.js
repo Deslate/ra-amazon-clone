@@ -17,7 +17,7 @@ export const newGoodViewEvent = (user_id, good_id) => {
 }
 
 export const newGoodClickEvent = (user_id, good_id, page_url) => {
-    message.info(good_id+"\t"+page_url)
+    //message.info(good_id+"\t"+page_url)
     return fetch(`${API}/event`,{
         method:'POST',
         body:JSON.stringify({
