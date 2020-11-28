@@ -1,9 +1,11 @@
 import React from 'react'
 import './GList.css'
-import { useLocation } from "react-router-dom";
+import { useLocation, useRouteMatch } from "react-router-dom";
 import { getGoodsByCategory } from '../../core/good';
 import { List, Rate, Button } from 'antd';
 import { getAllCategories } from '../../core/category';
+import { newGoodClickEvent } from '../../core/event';
+import { getCookie } from '../../core/cookie';
 
 const GList = () => {
 
@@ -25,6 +27,13 @@ const GList = () => {
             setCategories(data.result)
         })
     },[])
+
+    const match = useRouteMatch()
+
+    const onProductClicked = (gid) => {
+        newGoodClickEvent(getCookie("user_id"),""+gid,`${match.url}?cid=${categoryId}`)
+        .then(()=>window.location.href=`/g?gid=${gid}`)
+    }
 
     return (
         <div className="GList-page">
@@ -49,13 +58,13 @@ const GList = () => {
                     dataSource={goods}
                     renderItem={item => (
                         <List.Item className="GList-item">
-                            <img className="GList-item-image" src={item.image}></img>
+                            <img className="GList-item-image" src={item.image} onClick={()=>onProductClicked(item.good_id)}></img>
                             <div className="GList-item-info">
-                                <a href={`/g?gid=${item.good_id}`}>
+                                <a href="" onClick={()=>onProductClicked(item.good_id)}>
                                     <span className="Good-name">{item.name}</span>
                                 </a>
                                 <Rate disabled value={item.rating} />
-                                <a href={`/g?gid=${item.good_id}`}>
+                                <a href="" onClick={()=>onProductClicked(item.good_id)}>
                                     <div className="Good-price">
                                         <span className="Good-price-label">$</span>
                                         <span className="Good-price-number">{item.price}</span>

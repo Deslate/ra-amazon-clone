@@ -103,6 +103,7 @@ const Detail = () => {
                                 price={good.price}
                                 rating={good.rating}
                                 image={good.image}
+                                page_url={`${match.url}?gid=${goodId}`}
                             />
                         )}
                     </Space>
@@ -114,6 +115,7 @@ const Detail = () => {
                                 price={good.price}
                                 rating={good.rating}
                                 image={good.image}
+                                page_url={`${match.url}?gid=${goodId}`}
                             />
                         )}
                     </Space>

@@ -1,8 +1,10 @@
 import React from "react";
 import "./Product.css";
 import { useStateValue } from "../../StateProvider";
+import { newGoodClickEvent } from "../../../core/event";
+import { getCookie } from "../../../core/cookie";
 
-function Product({ id, title, image, price, rating }) {
+function Product({ id, title, image, price, rating, page_url }) {
   const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {
@@ -19,11 +21,16 @@ function Product({ id, title, image, price, rating }) {
     });
   };
 
+  const onProductClicked = () => {
+    newGoodClickEvent(getCookie("user_id"),""+id,page_url)
+    .then(()=>window.location.href=`/g?gid=${id}`)
+  }
+
   return (
     <div className="product" style={{flex:1}}>
       <div className="product__info">
-        <a href={`/g?gid=${id}`}><span style={{color:"black", fontSize:"20px", fontWeight:500}}>{title}</span></a>
-        <a href={`/g?gid=${id}`}><p className="product__price">
+        <a href={`/g?gid=${id}`} onClick={onProductClicked}><span style={{color:"black", fontSize:"20px", fontWeight:500}}>{title}</span></a>
+        <a href={`/g?gid=${id}`} onClick={onProductClicked}><p className="product__price">
           <small>$</small>
           <strong>{price}</strong>
         </p></a>
@@ -36,7 +43,7 @@ function Product({ id, title, image, price, rating }) {
         </div>
       </div>
 
-      <img src={image} alt="" onClick={()=>window.location.href=`/g?gid=${id}`}/>
+      <img src={image} alt="" onClick={onProductClicked}/>
 
       <button onClick={addToBasket}>Add to Basket</button>
     </div>

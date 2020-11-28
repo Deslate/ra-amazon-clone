@@ -5,7 +5,8 @@ import { getFrontPageGoods } from "../../core/good";
 import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer } from 'antd'
 import { getAllCategories } from "../../core/category";
-import { autoLogin } from "../../core/user";
+import { useRouteMatch } from "react-router-dom";
+
 
 const Home = () => {
 
@@ -14,6 +15,8 @@ const Home = () => {
   const [ categories, setCategories ] = React.useState([])
 
   const [ visible, setVisible ] = React.useState(false)
+
+  const match = useRouteMatch()
 
   React.useEffect(()=>{
 
@@ -32,7 +35,6 @@ const Home = () => {
       setCategories(data.result)
     })
 
-    autoLogin()
   },[])
 
 
@@ -65,6 +67,7 @@ const Home = () => {
                 price={good.price}
                 rating={good.rating}
                 image={good.image}
+                page_url={match.url}
               />
             )}
           </div>

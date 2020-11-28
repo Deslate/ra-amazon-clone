@@ -2,7 +2,7 @@ import { message } from "antd"
 
 export const API = "/api2"
 
-export const autoLogin = () => {
+export const autoLogin = (info=true) => {
     return fetch(`${API}/user`,{
         method:'POST',
         body:JSON.stringify({
@@ -10,7 +10,8 @@ export const autoLogin = () => {
         })
     }).then(async response=>{
         if(response.status===200){
-            message.success("Auto Login")
+            if(info){message.success("Auto Login")}
+            else{console.log("check login successful")}
             return response.json()
         }else if(response.status===404){
             // 如果登录失败则手动创建一个新用户
@@ -22,7 +23,7 @@ export const autoLogin = () => {
                     password:"Research-Password"
                 })
             }).then(res=>{
-                if(res.status===201){
+                if(res.status===201||res.status===200){
                     return res.json()
                 }else{
                     return {user_id:null}

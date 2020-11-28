@@ -14,6 +14,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Admin from "./admin/Admin";
 import Detail from "./detail/Detail";
+import { autoLogin } from "../core/user";
 
 const promise = loadStripe(
   "pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL"
@@ -25,7 +26,7 @@ function App() {
   useEffect(() => {
     // will only run once when the app component loads...
 
-    auth.onAuthStateChanged((authUser) => {
+    /*auth.onAuthStateChanged((authUser) => {
       console.log("THE USER IS >>> ", authUser);
 
       if (authUser) {
@@ -42,7 +43,10 @@ function App() {
           user: null,
         });
       }
-    });
+    });*/
+
+    autoLogin(false)
+
   }, []);
 
   return (
